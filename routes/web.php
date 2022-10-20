@@ -27,8 +27,8 @@ $router->put($url.'/{id}', $model.'Controller@update');
 $router->delete($url.'/{id}', $model.'Controller@destroy');
 }
 
-$router->group(['middleware'=> 'auth'],function()use()
+$router->group(['middleware'=> 'auth'],function()use($router){
 resource($router, '/topics', 'Topic');
 resource($router, '/users', 'User');
 resource($router, '/posts', 'Post');
-);
+});
